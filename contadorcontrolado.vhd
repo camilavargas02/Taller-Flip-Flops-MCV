@@ -12,7 +12,7 @@ end contador_controlado;
 architecture rtl of contador_controlado is
     signal estado, proximo_estado : STD_LOGIC_VECTOR(3 downto 0);
 begin
-    -- 1. Registro de Estado
+    -- Registro de Estado
     process(clk, rst)
     begin
         if rst = '1' then
@@ -22,7 +22,7 @@ begin
         end if;
     end process;
 
-    -- 2. Lógica de Siguiente Estado
+    -- Lógica de Siguiente Estado
     process(estado, ena)
     begin
         proximo_estado <= estado; 
@@ -38,13 +38,13 @@ begin
                 when "0110" => proximo_estado <= "0111";
                 when "0111" => proximo_estado <= "1000";
                 when "1000" => proximo_estado <= "1001";
-                when "1001" => proximo_estado <= "0000"; -- Retorna a ceros al llegar a 9
+                when "1001" => proximo_estado <= "0000"; 
                 when others => proximo_estado <= "0000";
             end case;
         end if;
     end process;
 
-    -- 3. Decodificador de Salida (Moore Machine) usando CASE
+    -- Decodificador de Salida 
     process(estado)
     begin
         case estado is
