@@ -38,10 +38,10 @@ begin
         rst_tb <= '0';
         ena_tb <= '1';
         
-        -- Dejamos que el contador cuente más allá de 9 un par de veces
+        
         wait for 250 ns;
         
-        ena_tb <= '0'; -- Verificamos que endCounter se sostenga si paramos en 9
+        ena_tb <= '0'; 
         wait for 50 ns;
         
         ena_tb <= '1'; 
