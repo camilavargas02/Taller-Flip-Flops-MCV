@@ -11,7 +11,7 @@ end contador_free_run;
 architecture rtl of contador_free_run is
     signal estado, proximo_estado : STD_LOGIC_VECTOR(3 downto 0);
 begin
-    -- Proceso 1: Lógica Secuencial (Flip-Flops)
+    -- Lógica Secuencial 
     process(clk, rst)
     begin
         if rst = '1' then
@@ -21,10 +21,10 @@ begin
         end if;
     end process;
 
-    -- Proceso 2: Lógica Combinacional (Transiciones de estado con CASE)
+    -- Lógica Combinacional 
     process(estado, ena)
     begin
-        proximo_estado <= estado; -- Valor por defecto: retener estado actual
+        proximo_estado <= estado; 
         
         if ena = '1' then
             case estado is
